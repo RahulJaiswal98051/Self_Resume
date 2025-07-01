@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +18,10 @@ Route::get('/', function () {
 
 Route::get('/Home', function () {
     return view('home');
+
 });
+
+Route::get('/user', [UserController::class, 'index']);
+
+// user 
+Route::view('/login',  'login');
