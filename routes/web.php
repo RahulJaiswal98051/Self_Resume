@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,18 +13,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home');
 });
 
-Route::get('/Home', function () {
-    return view('home');
 
-});
 
-Route::get('/user', [UserController::class, 'index']);
 
-// user 
-Route::view('/login',  'login');
+// User Route 
+Route::view('/home', 'frontend.home')->name('home');
+Route::view('/signup', 'frontend.signup')->name('signup');
+Route::view('/login', 'frontend.login')->name('login');
+Route::post('/signup-submit', [UserController::class, 'signup'])->name('signup-submit');
+Route::post('/login-submit', [UserController::class, 'login'])->name('login-submit');

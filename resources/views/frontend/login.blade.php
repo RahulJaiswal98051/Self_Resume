@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html>
 <head>
   <meta charset="UTF-8">
@@ -7,18 +6,28 @@
   <title>Self Resume</title>
 <link rel="stylesheet" href="{{ asset('custom.css') }}">
 
-   
 </head>
 <body>
+  
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   <div class="wrapper">
-    <form action="#">
+     <form action="{{route('login-submit')}}" method='POST'>
+      @csrf
       <h2>Login</h2>
         <div class="input-field">
-        <input type="text" required>
+        <input type="email" name="email" required>
         <label>Enter your email</label>
       </div>
       <div class="input-field">
-        <input type="password" required>
+        <input type="password" name="password" required>
         <label>Enter your password</label>
       </div>
       <div class="forget">
@@ -29,8 +38,8 @@
         <a href="#">Forgot password?</a>
       </div>
       <button type="submit">Log In</button>
-      <div class="register">
-        <p>Don't have an account? <a href="#">Register</a></p>
+      <div class="register"><p>Don't have an account?   <a href="{{ route('signup')  }}">Register</a></p>
+
       </div>
     </form>
   </div>
