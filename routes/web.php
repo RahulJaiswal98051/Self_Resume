@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 
 // User Route 
-Route::view('/home', 'frontend.home')->name('home');
+Route::view('/index', 'frontend.index')->name('index');
 Route::view('/signup', 'frontend.signup')->name('signup');
 Route::view('/login', 'frontend.login')->name('login');
 Route::post('/signup-submit', [UserController::class, 'signup'])->name('signup-submit');
