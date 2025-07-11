@@ -9,7 +9,7 @@
                 <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors duration-300">Testimonials</a>
             </nav>
             <div class="flex items-center space-x-4">
-                 <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 hidden sm:block">Log In</a>
+                 <a href="login" class="text-gray-300 hover:text-white transition-colors duration-300 hidden sm:block">Log In</a>
                  <a href="#" class="gradient-bg text-white font-semibold px-5 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
                     Get Started Free
                 </a>
