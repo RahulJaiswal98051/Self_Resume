@@ -1,11 +1,5 @@
 @extends('backend.layoutes.master')
+
 @section('content')
-@include('backend.includes.mainpanel')
-@include('backend.includes.footer')
-
-
-
-
-
-
-   @endsection
+@include('backend.layoutes.partials.site-setting-form')
+@endsection
