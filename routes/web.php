@@ -28,4 +28,6 @@ Route::view('/login', 'frontend.login')->name('login');
 Route::post('/signup-submit', [UserController::class, 'signup'])->name('signup-submit');
 Route::post('/login-submit', [UserController::class, 'login'])->name('login-submit');
 
+
+// Backend Route
 Route::view('/dashboard', 'backend.dashboard')->name('dashboard');
