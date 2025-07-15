@@ -1,0 +1,17 @@
+{
+  // Set the sidebar location: "left" or "right"
+  "workbench.sideBar.location": "left",
+
+  // Number of open editors shown in the explorer view
+  "explorer.openEditors.visible": 9,
+
+  // Control the visibility of the explorer view on startup
+  "workbench.startupEditor": "welcomePage",
+
+  // Enable file decorations (e.g., git status icons)
+  "explorer.decorations.colors": true,
+  "explorer.decorations.badges": true,
+
+  // Control the layout of the editor groups (optional)
+  "workbench.editor.openSideBySideDirection": "right"
+}
