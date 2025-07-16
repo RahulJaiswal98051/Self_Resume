@@ -42,7 +42,7 @@ class UserController extends Controller
         if($user){
             if(Hash::check($request->password,$user->password)){
                 Auth::login($user);
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
             }
         }
          return redirect()->back();
