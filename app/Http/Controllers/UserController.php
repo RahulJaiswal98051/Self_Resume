@@ -47,9 +47,9 @@ class UserController extends Controller
      
                 switch ($user->role) {
                     case 'admin':
-                        redirect()->intended(route('admin.dashboard'));
-
+                        return redirect()->intended(route('dashboard'));
                         break;
+                        
                     default:
                         return redirect()->intended(route('index'));
 
