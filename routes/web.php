@@ -30,7 +30,9 @@ Route::post('/signup-submit', [UserController::class, 'signup'])->name('signup-s
 Route::post('/login-submit', [UserController::class, 'login'])->name('login-submit');
 
 
-// Backend Route
+// Backend/Admin Route
 // Route::('/dashboard', 'backend.dashboard')->name('dashboard');
 Route::get('/dashboard', [SiteSettingController::class, 'index'])->name('dashboard');
+Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
+Route::get('/site-setting', [SiteSettingController::class, 'siteSetting'])->name('site-setting');
 Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
