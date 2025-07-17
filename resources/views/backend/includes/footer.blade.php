@@ -1,7 +1,7 @@
  
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="{{ asset('backend/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{ asset('backend/vendors/chart.js/chart.umd.js') }}"></script>
@@ -22,7 +22,11 @@
   <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
   <!-- End custom js for this page-->
 
-
+<!-- Include JS scripts here -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
+</body>
  
  
  <!-- <footer class="footer">

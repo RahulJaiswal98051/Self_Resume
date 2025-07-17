@@ -1,10 +1,22 @@
- <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-        <a class="navbar-brand brand-logo me-5" href="index.html"><img src="{{ asset('backend/images/logo.svg') }}" class="me-2"
-            alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('backend/images/logo-mini.svg') }}"
-            alt="logo" /></a>
+        <a class="navbar-brand brand-logo me-5" >
+            @if(isset($logo) && $logo)
+                <img src="{{ asset('images/' . $logo) }}" class="me-2 logo-circle" alt="logo" style="height: 50px; width:auto; border-radius: 50%; border: 2px solid #000;" />
+            @else
+                <img src="{{ asset('images/logo.svg') }}" class="me-2" alt="logo" />
+            @endif
+        </a>
+         
+        <div class="navbar-brand brand-logo-mini" >
+            @if(isset($logo) && $logo)
+                <img src="{{ asset('images/' . $logo) }}" class="me-2 logo-circle" alt="logo" style="height: 50px; width:auto; border-radius: 50%; border: 2px solid #000;" />
+            @else
+                <img src="{{ asset('images/logo.svg') }}" class="me-2" alt="logo" />
+            @endif
+        </div>
       </div>
+
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
@@ -69,7 +81,11 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-              <img src="assets/images/faces/face28.jpg" alt="profile" />
+              @if(isset($user) && is_object($user) && !empty($user->profile) && file_exists(public_path('backend/images/' . $user->profile)))
+                <img src="{{ asset('backend/images/' . $user->profile) }}" alt="profile" />
+              @else
+                <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" />
+              @endif
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
