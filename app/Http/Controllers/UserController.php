@@ -11,14 +11,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        return view('user.index')->with('users', User::all());
     }
 
     public function signup(Request $request)
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:16',
         ]);
 
@@ -42,7 +42,19 @@ class UserController extends Controller
         if($user){
             if(Hash::check($request->password,$user->password)){
                 Auth::login($user);
-                return redirect()->route('dashboard');
+
+     
+     
+                switch ($user->role) {
+                    case 'admin':
+                        redirect()->intended(route('admin.dashboard'));
+
+                        break;
+                    default:
+                        return redirect()->intended(route('index'));
+
+                }
+                // return redirect()->route('home');
             }
         }
          return redirect()->back();

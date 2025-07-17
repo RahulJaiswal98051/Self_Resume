@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -30,4 +31,6 @@ Route::post('/login-submit', [UserController::class, 'login'])->name('login-subm
 
 
 // Backend Route
-Route::view('/dashboard', 'backend.dashboard')->name('dashboard');
+// Route::('/dashboard', 'backend.dashboard')->name('dashboard');
+Route::get('/dashboard', [SiteSettingController::class, 'index'])->name('dashboard');
+Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
