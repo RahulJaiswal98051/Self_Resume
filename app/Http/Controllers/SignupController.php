@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class SignupController extends Controller
 {
     public function index()
     {
@@ -16,16 +16,19 @@ class UserController extends Controller
 
     public function signup(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:16',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $data = [
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'profile' => $request->file('profile')->store('public/images/profiles', 'public'),
         ];
 
         User::insert($data);
@@ -58,5 +61,11 @@ class UserController extends Controller
             }
         }
          return redirect()->back();
+    }
+    public function logout()
+    {
+        Auth::logout();
+        // Auth::flush(); // flush method does not exist on SessionGuard, so commenting out
+        return redirect()->route('login')->with('message', 'You have been logged out successfully.');
     }
 }
