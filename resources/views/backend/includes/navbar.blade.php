@@ -35,6 +35,27 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+              @auth
+                <span class="me-2">{{ auth()->user()->name }}</span>
+                @if(!empty(auth()->user()->profile) && file_exists(public_path(auth()->user()->profile)))
+                    <img src="{{ asset(auth()->user()->profile) }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
+                @else
+                    <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
+                @endif
+              @endauth
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i> Settings </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="ti-power-off text-primary"></i> Logout </a>
+            </div>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
               data-bs-toggle="dropdown">
@@ -77,21 +98,6 @@
                   <p class="font-weight-light small-text mb-0 text-muted"> 2 days ago </p>
                 </div>
               </a>
-            </div>
-          </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-              @if(isset($user) && is_object($user) && !empty($user->profile) && file_exists(public_path('backend/images/' . $user->profile)))
-                <img src="{{ asset('backend/images/' . $user->profile) }}" alt="profile" />
-              @else
-                <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" />
-              @endif
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i> Settings </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i> Logout </a>
             </div>
           </li>
           <li class="nav-item nav-settings d-none d-lg-flex">
