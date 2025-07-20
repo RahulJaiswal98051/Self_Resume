@@ -35,3 +35,7 @@ Route::get('/dashboard', [SiteSettingController::class, 'index'])->name('dashboa
 Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
 Route::get('/site-setting', [SiteSettingController::class, 'siteSetting'])->name('site-setting');
 Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
+
+
+// Route::get('/login', 'LoginController@showLoginForm')->name('login.form');
+// Route::post('/login', 'LoginController@login')->name('login');
