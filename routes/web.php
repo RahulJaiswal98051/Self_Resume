@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\SiteSettingController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +34,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
     Route::get('/site-setting', [SiteSettingController::class, 'siteSetting'])->name('site-setting');
     Route::post('/site-setting-submit', [SiteSettingController::class, 'siteSettingSubmit'])->name('site-setting-submit');
+    Route::resource('user-management', UserManagementController::class);
 });
