@@ -1,14 +1,24 @@
    <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('index') }}">
+            <a class="nav-link" href="{{ route('dashboard') }}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('index') }}">
+              <i class="fa-solid fa-users menu-icon"></i>
+              <span class="menu-title">Users dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('user-management.index') }}">
+              <i class="fa-solid fa-users-cog menu-icon"></i>
+              <span class="menu-title">Users Management</span>
+            </a>
 <li class="nav-item">
-  <a class="nav-link" data-bs-toggle="collapse" href="{{ route('site-setting') }}" aria-expanded="false"
-    aria-controls="ui-basic">
+  <a class="nav-link" href="{{ route('site-setting') }}">
     <i class="fa-solid fa-gear menu-icon"></i>
     <span class="menu-title">  Settings</span>
     <!-- <i class="menu-arrow"></i> -->

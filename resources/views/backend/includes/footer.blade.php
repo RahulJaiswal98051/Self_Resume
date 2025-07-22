@@ -1,7 +1,7 @@
  
   <!-- container-scroller -->
   <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="{{ asset('backend/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="{{ asset('backend/vendors/chart.js/chart.umd.js') }}"></script>
@@ -22,7 +22,51 @@
   <!-- <script src="assets/js/Chart.roundedBarCharts.js"></script> -->
   <!-- End custom js for this page-->
 
+<!-- Include JS scripts here -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
 
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="errorMessages" class="mb-0"></ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var errors = @json($errors->any() ? $errors->all() : []);
+    var sessionError = @json(session('error'));
+
+    if (sessionError) {
+      errors.push(sessionError);
+    }
+
+    if (errors.length > 0) {
+      var errorList = document.getElementById('errorMessages');
+      errors.forEach(function (error) {
+        var li = document.createElement('li');
+        li.textContent = error;
+        errorList.appendChild(li);
+      });
+      var errorModal = new bootstrap.Modal(document.getElementById('errorModal'));
+      errorModal.show();
+    }
+  });
+</script>
+</body>
  
  
  <!-- <footer class="footer">

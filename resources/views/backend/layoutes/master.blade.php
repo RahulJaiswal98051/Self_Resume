@@ -20,6 +20,6 @@
         <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
-    <!-- Include JS scripts here -->
-</body>
+    
 </html>
+@include('backend.includes.footer')

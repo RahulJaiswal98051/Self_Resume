@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up | AI Self Resume</title>
+  <title>Self Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -73,22 +73,23 @@
 
     .signup-right {
       width: 55%;
-      padding: 50px;
+      padding: 50px 40px 50px 40px;
       background: #fff;
     }
 
     .signup-right h2 {
-      margin-bottom: 25px;
+      margin-top: -25px;
+      margin-bottom: 10px;
       color: #333;
     }
 
     .input-group {
       position: relative;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .input-group label {
-      font-size: 14px;
+      font-size: 10px;
       margin-bottom: 5px;
       display: block;
       color: #555;
@@ -166,7 +167,7 @@
 
   <!-- Right Panel -->
   <div class="signup-right">
-    <form method="POST" action="{{ route('signup-submit') }}">
+    <form method="POST" action="{{ route('signup-submit') }}" multipart="true" enctype="multipart/form-data">
       @csrf
       <h2>Sign Up</h2>
 
@@ -186,6 +187,17 @@
         <label for="password">Password</label>
         <i class="fas fa-lock"></i>
         <input type="password" id="password" name="password" required>
+      </div>
+      <div class="input-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password_confirmation" name="password_confirmation" required>
+      </div>
+
+      <div class="input-group">
+        <label for="profile">Profile</label>
+        <i class="fas fa-user"></i>
+        <input type="file" id="profile" name="profile"  required>
       </div>
 
       <button type="submit">Submit</button>
