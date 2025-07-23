@@ -4,7 +4,8 @@
             @if(isset($logo) && $logo)
                 <img src="{{ asset('images/' . $logo) }}" class="me-2 logo-circle" alt="logo" style="height: 50px; width:auto; border-radius: 50%; border: 2px solid #000;" />
             @else
-                <img src="{{ asset('images/logo.svg') }}" class="me-2" alt="logo" />
+             <img src="{{ asset('images/image3.webp') }}" class="me-3" alt="logo" style="height: 60px; width: 70px; object-fit: cover; border-radius: 8px;" />
+
             @endif
         </a>
          
@@ -100,11 +101,11 @@
               </a>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
+          <!-- <li class="nav-item nav-settings d-none d-lg-flex">
             <a class="nav-link" href="#">
               <i class="icon-ellipsis"></i>
             </a>
-          </li>
+          </li> -->
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
           data-toggle="offcanvas">
