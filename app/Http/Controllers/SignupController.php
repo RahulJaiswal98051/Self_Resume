@@ -25,7 +25,7 @@ class SignupController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|max:16',
-            'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         $profileFile = $request->file('profile');

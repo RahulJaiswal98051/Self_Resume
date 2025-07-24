@@ -29,26 +29,26 @@
 
 <div class="row" style="min-height: 400px;">
   <!-- Left Side: Large Card -->
-  <div class="col-md-6 mb-4 d-flex">
-    <div class="card tale-bg w-100 h-100">
-      <div class="card-people h-100 position-relative">
-        <img src="{{ asset('images/image2.jpg') }}" alt="people"
-             style="width: 100%; height: 100%; object-fit: cover;">
-        <div class="weather-info position-absolute bottom-0 start-0 p-3 text-white"
-             style="background: rgba(0,0,0,0.5); width: 100%;">
-          <div class="d-flex">
-            <div>
-              <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i></h2>
-            </div>
-            <div class="ms-2">
-              <h4 class="location font-weight-normal">Chicago</h4>
-              <h6 class="font-weight-normal">Illinois</h6>
-            </div>
+<div class="col-md-6 mb-4 d-flex">
+  <div class="card tale-bg w-100 rounded-4 overflow-hidden" style="height: 400px;"> <!-- Increased height -->
+    <div class="card h-100 position-relative">
+      <img src="{{ asset('images/image1.jpg') }}" alt="people"
+           style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;"> <!-- Rounded image -->
+      <div class="weather-info position-absolute bottom-0 start-0 p-3 text-white"
+           style="background: rgba(0,0,0,0.0); width: 100%;">
+        <div class="d-flex">
+          <div>
+            <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i></h2>
+          </div>
+          <div class="ms-2">
+            <!-- Content here -->
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- Right Side: 2x2 Cards -->
   <div class="col-md-6 d-flex flex-column">
@@ -59,10 +59,8 @@
           <img src="{{ asset('images/image2.jpg') }}" alt="Image"
                style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
           <div class="card-body d-flex flex-column justify-content-center"
-               style="z-index: 1; background: rgba(0, 0, 0, 0.5);">
-            <p class="mb-2">Today’s Bookings</p>
-            <p class="fs-30 mb-1">4006</p>
-            <p>10.00% (30 days)</p>
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+           
           </div>
         </div>
       </div>
@@ -71,10 +69,8 @@
           <img src="{{ asset('images/image2.jpg') }}" alt="Image"
                style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
           <div class="card-body d-flex flex-column justify-content-center"
-               style="z-index: 1; background: rgba(0, 0, 0, 0.5);">
-            <p class="mb-2">Total Sales</p>
-            <p class="fs-30 mb-1">7850</p>
-            <p>12.50% (30 days)</p>
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+            
           </div>
         </div>
       </div>
@@ -85,10 +81,8 @@
           <img src="{{ asset('images/image2.jpg') }}" alt="Image"
                style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
           <div class="card-body d-flex flex-column justify-content-center"
-               style="z-index: 1; background: rgba(0, 0, 0, 0.5);">
-            <p class="mb-2">Revenue</p>
-            <p class="fs-30 mb-1">$12,000</p>
-            <p>8.00% (30 days)</p>
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+        
           </div>
         </div>
       </div>
@@ -97,10 +91,8 @@
           <img src="{{ asset('images/image2.jpg') }}" alt="Image"
                style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
           <div class="card-body d-flex flex-column justify-content-center"
-               style="z-index: 1; background: rgba(0, 0, 0, 0.5);">
-            <p class="mb-2">Customers</p>
-            <p class="fs-30 mb-1">1094</p>
-            <p>5.50% (30 days)</p>
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+            
           </div>
         </div>
       </div>

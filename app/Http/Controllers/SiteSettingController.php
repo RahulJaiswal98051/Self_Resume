@@ -27,7 +27,7 @@ class SiteSettingController extends Controller
             'sitename' => 'required|string|max:255',
             'email' => 'required|email',
             'city' => 'required|string|max:255',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
 
         if($request->logo && $request->hasFile('logo')){
