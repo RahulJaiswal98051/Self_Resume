@@ -24,13 +24,8 @@ class SignupController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-<<<<<<< HEAD
-            'password' => 'required|min:8|max:16|confirmed',
-            'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-=======
             'password' => 'required|min:8|max:16',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
->>>>>>> f12d85d5ccc48ca5ef488b74872a0049100d4442
         ]);
 
         $profileFile = $request->file('profile');
@@ -58,23 +53,6 @@ class SignupController extends Controller
 
         $user = User::where('email', $request->input('email'))->first();
 
-<<<<<<< HEAD
-        if (!$user) {
-            return redirect()->back()->withErrors(['email' => 'User does not exist.'])->withInput();
-        }
-
-        if (!Hash::check($request->input('password'), $user->password)) {
-            return redirect()->back()->withErrors(['password' => 'Password does not match.'])->withInput();
-        }
-
-        Auth::login($user);
-        switch ($user->role ?? null) {
-            case 'admin':
-                return redirect()->intended(route('dashboard'));
-            default:
-                return redirect()->intended(route('index'));
-        }
-=======
         if ($user && Hash::check($request->input('password'), $user->password)) {
             Auth::login($user);
 
@@ -87,7 +65,6 @@ class SignupController extends Controller
         }
 
         return redirect()->back()->with('message', 'Invalid email or password.');
->>>>>>> f12d85d5ccc48ca5ef488b74872a0049100d4442
     }
 
     public function logout()

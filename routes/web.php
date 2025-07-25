@@ -20,12 +20,17 @@ use App\Http\Controllers\PasswordResetController;
 Route::get('/', function () {
     return view('frontend.index');
 });
+ 
 
+// User Home page Route
 Route::view('/index', 'frontend.index')->name('index');
+
+// logout Route 
  Route::post('/logout', [SignupController::class, 'logout'])->name('logout');
 
+
 Route::middleware(['guest'])->group(function () {
-    // Signup Route 
+    // login & Signup Route 
     Route::view('/signup', 'frontend.signup')->name('signup');
     Route::view('/login', 'frontend.login')->name('login');
     Route::post('/signup-submit', [SignupController::class, 'signup'])->name('signup-submit');
