@@ -13,20 +13,24 @@ class SignupController extends Controller
     {
         return view('user.index');
     }
-/*************  ✨ Windsurf Command ⭐  *************/
+
     public function showSignupForm()
     {
         return view('user.signup');
-    } // Missing closing bracket added here
+    }
 
-    /*******  69fc2e30-4dc9-4d52-a3af-446354612b23  *******/
     public function signup(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
+<<<<<<< HEAD
             'password' => 'required|min:8|max:16|confirmed',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+=======
+            'password' => 'required|min:8|max:16',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+>>>>>>> f12d85d5ccc48ca5ef488b74872a0049100d4442
         ]);
 
         $profileFile = $request->file('profile');
@@ -37,20 +41,24 @@ class SignupController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'profile' => 'images/profiles/' . $profileName,
+            'profile_picture' => 'images/profiles/' . $profileName,
         ];
 
         User::insert($data);
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('message', 'Signup successful! Please login.');
     }
-    public function login(Request $request){
+
+    public function login(Request $request)
+    {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:8|max:16'
+            'password' => 'required|min:8|max:16',
         ]);
+
         $user = User::where('email', $request->input('email'))->first();
 
+<<<<<<< HEAD
         if (!$user) {
             return redirect()->back()->withErrors(['email' => 'User does not exist.'])->withInput();
         }
@@ -66,11 +74,26 @@ class SignupController extends Controller
             default:
                 return redirect()->intended(route('index'));
         }
+=======
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            Auth::login($user);
+
+            switch ($user->role ?? null) {
+                case 'admin':
+                    return redirect()->intended(route('dashboard'))->with('message', 'Welcome Admin!');
+                default:
+                    return redirect()->intended(route('index'))->with('message', 'Welcome User!');
+            }
+        }
+
+        return redirect()->back()->with('message', 'Invalid email or password.');
+>>>>>>> f12d85d5ccc48ca5ef488b74872a0049100d4442
     }
+
     public function logout()
     {
         Auth::logout();
-        // Auth::flush(); // flush method does not exist on SessionGuard, so commenting out
+        session()->flush(); // Optional: clears all session data
         return redirect()->route('login')->with('message', 'You have been logged out successfully.');
     }
 }

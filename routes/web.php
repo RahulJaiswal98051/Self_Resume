@@ -22,6 +22,7 @@ Route::get('/', function () {
 });
 
 Route::view('/index', 'frontend.index')->name('index');
+ Route::post('/logout', [SignupController::class, 'logout'])->name('logout');
 
 Route::middleware(['guest'])->group(function () {
     // Signup Route 
@@ -29,7 +30,7 @@ Route::middleware(['guest'])->group(function () {
     Route::view('/login', 'frontend.login')->name('login');
     Route::post('/signup-submit', [SignupController::class, 'signup'])->name('signup-submit');
     Route::post('/login-submit', [SignupController::class, 'login'])->name('login-submit');
-    Route::post('/logout', [SignupController::class, 'logout'])->name('logout');
+   
 
     // Password reset routes
     Route::get('/password.request', [PasswordResetController::class, 'showRequestForm'])->name('password.request');
