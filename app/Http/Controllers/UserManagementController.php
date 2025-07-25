@@ -14,7 +14,7 @@ class UserManagementController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(5); // Adjust the pagination as needed;
         return view('backend.layoutes.userManagement', compact('users'));
     }
 
@@ -25,7 +25,7 @@ class UserManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.layoutes.createUser');
     }
 
     /**
@@ -36,7 +36,27 @@ class UserManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'role' => 'required|in:admin,user',
+        ]);
+
+        $profileFile = $request->file('profile');
+        $profileName = time() . '_' . $profileFile->getClientOriginalName();
+        $profileFile->move(public_path('images/profiles'), $profileName);
+
+        $user = new \App\Models\User();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->profile = 'images/profiles/' . $profileName;
+        $user->role = $request->input('role');
+        $user->save();
+
+        return redirect()->route('user-management.index')->with('success', 'User added successfully.');
     }
 
     /**
@@ -53,31 +73,45 @@ class UserManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $user_management
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user_management)
+    public function edit($user_management)
     {
-        return view('backend.layoutes.editUser', ['user' => $user_management]);
+        $user = User::findOrFail($user_management);
+        return view('backend.layoutes.editUser', ['user' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user_management
+     * @param  int  $user_management
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user_management)
+    public function update(Request $request, $user_management)
     {
+        $user = User::findOrFail($user_management);
+        
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $user_management->id,
+            'email' => 'required|email|max:255|unique:users,email,' . $user->id,
+            'profile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'role' => 'required|in:admin,user',
         ]);
 
-        $user_management->name = $request->input('name');
-        $user_management->email = $request->input('email');
-        $user_management->save();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->role = $request->input('role');
+
+        if ($request->hasFile('profile')) {
+            $profileFile = $request->file('profile');
+            $profileName = time() . '_' . $profileFile->getClientOriginalName();
+            $profileFile->move(public_path('images/profiles'), $profileName);
+            $user->profile = 'images/profiles/' . $profileName;
+        }
+
+        $user->save();
 
         return redirect()->route('user-management.index')->with('success', 'User updated successfully.');
     }
@@ -85,12 +119,13 @@ class UserManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\User  $user_management
+     * @param  int  $user_management
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user_management)
+    public function destroy($user_management)
     {
-        $user_management->delete();
+        $user = User::findOrFail($user_management);
+        $user->delete();
 
         return redirect()->route('user-management.index')->with('success', 'User deleted successfully.');
     }

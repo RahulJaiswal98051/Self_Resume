@@ -14,7 +14,7 @@ class AlterUsersTableAddRoleProfile extends Migration
     public function up()
     {
          Schema::table('users', function (Blueprint $table) {
-        $table->enum('role', ['admin', ''])->nullable(); // Add role column
+        $table->enum('role', ['admin', 'user'])->default('user'); // Add role column i want set defult value user
         $table->string('profile')->nullable();           // Add profile column
     });
     }

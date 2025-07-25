@@ -7,6 +7,8 @@
                 <img src="{{ asset('images/logo.svg') }}" class="me-2" alt="logo" />
             @endif
         </a>
+        <!-- site name from database -->
+        
          
         <div class="navbar-brand brand-logo-mini" >
             @if(isset($logo) && $logo)
@@ -38,9 +40,9 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
               @auth
-                <span class="me-2">{{ auth()->user()->name }}</span>
-                @if(!empty(auth()->user()->profile) && file_exists(public_path(auth()->user()->profile)))
-                    <img src="{{ asset(auth()->user()->profile) }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
+                <span class="me-2">{{ $authUser->name }}</span>
+                @if(!empty($authUser->profile) && file_exists(public_path($authUser->profile)))
+                    <img src="{{ asset($authUser->profile) }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
                 @else
                     <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
                 @endif
@@ -100,11 +102,11 @@
               </a>
             </div>
           </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
+          <!-- <li class="nav-item nav-settings d-none d-lg-flex">
             <a class="nav-link" href="#">
               <i class="icon-ellipsis"></i>
             </a>
-          </li>
+          </li> -->
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
           data-toggle="offcanvas">

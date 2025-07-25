@@ -25,7 +25,7 @@ class SignupController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|max:16',
+            'password' => 'required|min:8|max:16|confirmed',
             'profile' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -51,18 +51,21 @@ class SignupController extends Controller
         ]);
         $user = User::where('email', $request->input('email'))->first();
 
-        if ($user) {
-            if (Hash::check($request->input('password'), $user->password)) {
-                Auth::login($user);
-                switch ($user->role ?? null) {
-                    case 'admin':
-                        return redirect()->intended(route('dashboard'));
-                    default:
-                        return redirect()->intended(route('index'));
-                }
-            }
+        if (!$user) {
+            return redirect()->back()->withErrors(['email' => 'User does not exist.'])->withInput();
         }
-         return redirect()->back();
+
+        if (!Hash::check($request->input('password'), $user->password)) {
+            return redirect()->back()->withErrors(['password' => 'Password does not match.'])->withInput();
+        }
+
+        Auth::login($user);
+        switch ($user->role ?? null) {
+            case 'admin':
+                return redirect()->intended(route('dashboard'));
+            default:
+                return redirect()->intended(route('index'));
+        }
     }
     public function logout()
     {

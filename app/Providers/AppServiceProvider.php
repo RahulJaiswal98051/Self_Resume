@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $logoSetting = Setting::where('key', 'logo')->first();
             $logo = $logoSetting ? $logoSetting->value : null;
-            $user = auth()->user();
-            $view->with('logo', $logo)->with('user', $user);
+            $authUser = auth()->user();
+            $view->with('logo', $logo)->with('authUser', $authUser);
         });
     }
 }

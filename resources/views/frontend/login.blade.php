@@ -172,9 +172,7 @@
         <input type="password" id="password" name="password" required>
       </div>
 
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="terms"> I accept the terms and conditions</label>
-      </div>
+      
 
       <button type="submit">LOGIN</button>
 
