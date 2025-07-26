@@ -11,13 +11,19 @@ class AlterUsersTableAddRoleProfile extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-         Schema::table('users', function (Blueprint $table) {
-        $table->enum('role', ['admin', ''])->nullable(); // Add role column
-        $table->string('profile')->nullable();           // Add profile column
+   public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        if (!Schema::hasColumn('users', 'role')) {
+            $table->enum('role', ['admin', ''])->nullable();
+        }
+
+        if (!Schema::hasColumn('users', 'profile')) {
+            $table->string('profile')->nullable();
+        }
     });
-    }
+}
+
 
     /**
      * Reverse the migrations.
@@ -26,6 +32,14 @@ class AlterUsersTableAddRoleProfile extends Migration
      */
     public function down()
     {
-        //
-    }
+         Schema::table('users', function (Blueprint $table) {
+        if (Schema::hasColumn('users', 'role')) {
+            $table->dropColumn('role');
+        }
+
+        if (Schema::hasColumn('users', 'profile')) {
+            $table->dropColumn('profile');
+        }
+    });
+}
 }
