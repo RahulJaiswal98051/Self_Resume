@@ -20,6 +20,30 @@ use App\Http\Controllers\PasswordResetController;
 Route::get('/', function () {
     return view('frontend.index');
 });
+
+// Resume Generator Route
+Route::get('/resume-generator', function () {
+    return view('resume-generator');
+})->name('resume-generator');
+
+// Debug route to test API accessibility
+Route::get('/test-api', function () {
+    return response()->json([
+        'message' => 'API is accessible',
+        'url' => request()->url(),
+        'base_url' => url('/'),
+        'app_url' => config('app.url'),
+        'timestamp' => now()
+    ]);
+});
+
+// Test POST route
+Route::post('/test-resume', function () {
+    return response()->json([
+        'message' => 'POST route working',
+        'data' => request()->all()
+    ]);
+});
  
 
 // User Home page Route
