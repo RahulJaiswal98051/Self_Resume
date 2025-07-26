@@ -66,3 +66,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 
 
+// AI Resume Routes
+use App\Http\Controllers\ResumeController;
+
+Route::get('/resume/create', [ResumeController::class, 'create'])->name('resume.create');
+Route::post('/resume/generate', [ResumeController::class, 'generate'])->name('resume.generate');
