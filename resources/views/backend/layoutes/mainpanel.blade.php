@@ -26,84 +26,84 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="{{ asset('backend/images/dashboard/people.svg') }}" alt="people">
-                  <div class="weather-info">
-                    <div class="d-flex">
-                      <div>
-                        <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i>31<sup>C</sup></h2>
-                      </div>
-                      <div class="ms-2">
-                        <h4 class="location font-weight-normal">Chicago</h4>
-                        <h6 class="font-weight-normal">Illinois</h6>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
-                    <div class="card-body">
-                      <p class="mb-4">Today’s Bookings</p>
-                      <p class="fs-30 mb-2">4006</p>
-                      <p>10.00% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-dark-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Total Bookings</p>
-                      <p class="fs-30 mb-2">61344</p>
-                      <p>22.00% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                  <div class="card card-light-blue">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Meetings</p>
-                      <p class="fs-30 mb-2">34040</p>
-                      <p>2.00% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                      <p class="mb-4">Number of Clients</p>
-                      <p class="fs-30 mb-2">47033</p>
-                      <p>0.22% (30 days)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+<div class="row" style="min-height: 400px;">
+  <!-- Left Side: Large Card -->
+<div class="col-md-6 mb-4 d-flex">
+  <div class="card tale-bg w-100 rounded-4 overflow-hidden" style="height: 400px;"> <!-- Increased height -->
+    <div class="card h-100 position-relative">
+      <img src="{{ asset('images/image1.jpg') }}" alt="people"
+           style="width: 100%; height: 100%; object-fit: cover; border-radius: 1rem;"> <!-- Rounded image -->
+      <div class="weather-info position-absolute bottom-0 start-0 p-3 text-white"
+           style="background: rgba(0,0,0,0.0); width: 100%;">
+        <div class="d-flex">
+          <div>
+            <h2 class="mb-0 font-weight-normal"><i class="icon-sun me-2"></i></h2>
           </div>
-          <div class="row">
-            <div class="col-md-12 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex justify-content-between">
-                    <p class="card-title">Sales Report</p>
-                    <a href="#" class="text-info">View all</a>
-                  </div>
-                  <p class="font-weight-500">The total number of sessions within the date range. It is the period time a
-                    user is actively engaged with your website, page or app, etc</p>
-                  <div id="sales-chart-legend" class="chartjs-legend mt-4 mb-2"></div>
-                  <canvas id="sales-chart"></canvas>
-                </div>
-              </div>
-            </div>
+          <div class="ms-2">
+            <!-- Content here -->
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Right Side: 2x2 Cards -->
+  <div class="col-md-6 d-flex flex-column">
+    <div class="row flex-fill">
+      <!-- Top Row -->
+      <div class="col-md-6 mb-3 stretch-card transparent d-flex">
+        <div class="card position-relative text-white w-100" style="overflow: hidden;">
+          <img src="{{ asset('images/image2.jpg') }}" alt="Image"
+               style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <div class="card-body d-flex flex-column justify-content-center"
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3 stretch-card transparent d-flex">
+        <div class="card position-relative text-white w-100" style="overflow: hidden;">
+          <img src="{{ asset('images/image2.jpg') }}" alt="Image"
+               style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <div class="card-body d-flex flex-column justify-content-center"
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="col-md-6 stretch-card transparent d-flex">
+        <div class="card position-relative text-white w-100" style="overflow: hidden;">
+          <img src="{{ asset('images/image2.jpg') }}" alt="Image"
+               style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <div class="card-body d-flex flex-column justify-content-center"
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+        
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 stretch-card transparent d-flex">
+        <div class="card position-relative text-white w-100" style="overflow: hidden;">
+          <img src="{{ asset('images/image2.jpg') }}" alt="Image"
+               style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+          <div class="card-body d-flex flex-column justify-content-center"
+               style="z-index: 1; background: rgba(0, 0, 0, 0.0);">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Repeat same structure for other cards, just change card-tale/card-dark-blue classes or images if needed -->
+
+
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card position-relative">

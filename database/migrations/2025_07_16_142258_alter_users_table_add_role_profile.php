@@ -11,6 +11,7 @@ class AlterUsersTableAddRoleProfile extends Migration
      *
      * @return void
      */
+<<<<<<< HEAD
    public function up()
 {
     Schema::table('users', function (Blueprint $table) {
@@ -21,6 +22,13 @@ class AlterUsersTableAddRoleProfile extends Migration
         if (!Schema::hasColumn('users', 'profile')) {
             $table->string('profile')->nullable();
         }
+=======
+    public function up()
+    {
+         Schema::table('users', function (Blueprint $table) {
+        $table->enum('role', ['admin', 'user'])->default('user'); // Add role column i want set defult value user
+        $table->string('profile')->nullable();           // Add profile column
+>>>>>>> 7a248947792dda9e6d35cdac4f4ddfd26ca60950
     });
 }
 

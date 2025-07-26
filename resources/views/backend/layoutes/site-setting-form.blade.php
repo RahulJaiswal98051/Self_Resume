@@ -20,6 +20,16 @@
           <div class="form-group">
             <label>Logo </label>
             <input type="file" name="logo" id="logoInput" class="form-control file-upload-info" placeholder="Upload Image">
+            @if(!empty($settings['logo']))
+              <div style="margin-top: 10px;">
+                <p>Current Logo: {{ $settings['logo'] }}</p>
+                @php
+                  $logoPath = public_path('images/' . $settings['logo']);
+                @endphp
+                <p>Logo file exists: {{ file_exists($logoPath) ? 'Yes' : 'No' }}</p>
+                <img src="{{ asset('images/' . $settings['logo']) }}" alt="Current Logo" style="max-width: 200px;">
+              </div>
+            @endif
             <img id="logoPreview" src="#" alt="Logo Preview" style="display:none; max-width: 200px; margin-top: 10px;" />
           </div>
           

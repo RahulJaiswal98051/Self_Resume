@@ -1,6 +1,4 @@
-<?php
-
-use App\Http\Controllers\SiteSettingController;
+    <?php   use App\Http\Controllers\SiteSettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\UserManagementController;
@@ -41,3 +39,4 @@ Route::resource('resumes', ResumeController::class);
 
 // 👤 Personal Details CRUD (Corrected route)
 Route::resource('personal-details', PersonalDetailsController::class);
+

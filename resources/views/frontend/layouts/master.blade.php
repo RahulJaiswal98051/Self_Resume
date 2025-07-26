@@ -8,21 +8,21 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Bootstrap CSS for Modal Support -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Styles & Tailwind Configuration -->
 
-    <!-- Bootstrap
-    <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}"> -->
-    <!-- Bootstrap -->
+    
+      <!-- Additional styles for Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Font Awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-1PKOgIY59x2+8z5e" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -65,6 +65,9 @@
 </head>
 <body class="antialiased">
 
+
+
+
     <!-- Header / Navigation -->
     @include('frontend.includes.navbar')
 
@@ -72,6 +75,11 @@
     <!-- Footer -->
     @include('frontend.includes.footer')
 
+    <!-- Popup Notifications -->
+    @include('components.popup-notifications')
+
+    <!-- Bootstrap JS for Modal Support -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JavaScript for Interactivity -->
     <script>
@@ -94,6 +102,6 @@
             });
         });
     </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

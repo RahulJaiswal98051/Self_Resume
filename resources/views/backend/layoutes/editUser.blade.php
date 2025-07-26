@@ -1,9 +1,11 @@
 @extends('backend.layoutes.master')
 
 @section('content')
-    <h1>Edit User</h1>
+    <h2>Edit User</h2>
 
-    <form action="{{ route('user-management.update', $user->id) }}" method="POST">
+    {{-- Display validation errors --}}
+
+    <form action="{{ route('user-management.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -19,6 +21,28 @@
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $user->email) }}" required>
             @error('email')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="profile">Profile Image:</label><br>
+            @if($user->profile)
+                <img src="{{ asset($user->profile) }}" alt="Profile Image" width="100" height="100"><br><br>
+            @endif
+            <input type="file" name="profile" id="profile" class="form-control-file">
+            @error('profile')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <select name="role" id="role" class="form-control" required>
+                <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
+                <option value="user" {{ old('role', $user->role) == 'user' ? 'selected' : '' }}>User</option>
+            </select>
+            @error('role')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

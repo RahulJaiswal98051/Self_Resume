@@ -33,7 +33,6 @@
                     </ul>
                 </div>
             </div>
-            @include('backend.includes.footer')
             <div class="mt-12 pt-12 border-t border-slate-800 text-center text-gray-500">
                 &copy; 2025 SelfResume. All rights reserved.
             </div>
@@ -47,4 +46,7 @@
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
