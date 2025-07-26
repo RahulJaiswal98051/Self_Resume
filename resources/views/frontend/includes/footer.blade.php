@@ -40,7 +40,7 @@
 
         <div class="fixed bottom-0 left-0 right-0 bg-slate-900/60 backdrop-blur-md">
             <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <p class="text-gray-400 text-sm">Made with ❤️ by SelfResume Team</p>
+                <p class="text-gray-400 text-sm">Made with  by SelfResume Team</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>

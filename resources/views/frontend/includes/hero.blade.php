@@ -20,7 +20,18 @@
             
             <!-- Animated Resume Preview -->
             <div class="relative mt-16 lg:mt-24 max-w-4xl mx-auto px-6 reveal-on-scroll">
-                 <div class="absolute inset-0 bg-indigo-900/30 rounded-full blur-3xl -z-10"></div>
-                 <img src="https://placehold.co/1200x800/1e1b4b/a78bfa?text=AI+Resume+Preview" alt="AI generating a resume" class="rounded-2xl shadow-2xl shadow-black/40 border-2 border-slate-700">
-            </div>
+  <div class="absolute inset-0 bg-indigo-900/30 rounded-full blur-3xl -z-10"></div>
+
+  <!-- Image -->
+  <img src="{{ asset('images/image8.jpg') }}" alt="AI generating a resume"
+       class="w-full h-[600px] object-cover rounded-2xl shadow-2xl shadow-black/40 border-2 border-slate-700">
+
+  <!-- Text overlay -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <h2 class="text-white text-3xl lg:text-5xl font-bold drop-shadow-lg select-none">
+      AI Resume Preview in Action
+    </h2>
+  </div>
+</div>
+
         </section>

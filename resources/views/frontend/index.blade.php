@@ -11,38 +11,62 @@
                     <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Everything you need to create a job-winning application.</p>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Feature Card 1 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll">
-                        <h3 class="text-2xl font-bold text-white mb-3">AI Content Writer</h3>
-                        <p class="text-gray-400">Overcome writer's block. Our AI generates compelling bullet points and summaries based on your job title and experiences.</p>
-                    </div>
-                    <!-- Feature Card 2 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll" style="transition-delay: 200ms;">
-                        <h3 class="text-2xl font-bold text-white mb-3">Professional Templates</h3>
-                        <p class="text-gray-400">Choose from a library of recruiter-approved templates that are modern, professional, and easily parsable by ATS systems.</p>
-                    </div>
-                    <!-- Feature Card 3 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll" style="transition-delay: 400ms;">
-                        <h3 class="text-2xl font-bold text-white mb-3">Keyword Optimization</h3>
-                        <p class="text-gray-400">Our AI analyzes job descriptions and suggests relevant keywords to include, boosting your resume's visibility.</p>
-                    </div>
-                    <!-- Feature Card 4 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll">
-                        <h3 class="text-2xl font-bold text-white mb-3">Real-time Preview</h3>
-                        <p class="text-gray-400">See your changes instantly. Edit and format your resume with a live preview that shows exactly how it will look.</p>
-                    </div>
-                     <!-- Feature Card 5 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll" style="transition-delay: 200ms;">
-                        <h3 class="text-2xl font-bold text-white mb-3">Easy Export</h3>
-                        <p class="text-gray-400">Download your finished resume as a high-quality PDF, ready to be sent to employers, with a single click.</p>
-                    </div>
-                     <!-- Feature Card 6 -->
-                    <div class="gradient-border-card p-8 reveal-on-scroll" style="transition-delay: 400ms;">
-                        <h3 class="text-2xl font-bold text-white mb-3">AI Cover Letters</h3>
-                        <p class="text-gray-400">Generate personalized cover letters in seconds. Our AI tailors each letter to the specific job you're applying for.</p>
-                    </div>
-                </div>
+               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- Feature Card 1 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="AI Content Writer" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">AI Content Writer</h3>
+      <p class="text-gray-200">Overcome writer's block. Our AI generates compelling bullet points and summaries based on your job title and experiences.</p>
+    </div>
+  </div>
+
+  <!-- Feature Card 2 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md" style="transition-delay: 200ms;">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="Professional Templates" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">Professional Templates</h3>
+      <p class="text-gray-200">Choose from a library of recruiter-approved templates that are modern, professional, and easily parsable by ATS systems.</p>
+    </div>
+  </div>
+
+  <!-- Feature Card 3 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md" style="transition-delay: 400ms;">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="Keyword Optimization" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">Keyword Optimization</h3>
+      <p class="text-gray-200">Our AI analyzes job descriptions and suggests relevant keywords to include, boosting your resume's visibility.</p>
+    </div>
+  </div>
+
+  <!-- Feature Card 4 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="Real-time Preview" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">Real-time Preview</h3>
+      <p class="text-gray-200">See your changes instantly. Edit and format your resume with a live preview that shows exactly how it will look.</p>
+    </div>
+  </div>
+
+  <!-- Feature Card 5 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md" style="transition-delay: 200ms;">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="Easy Export" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">Easy Export</h3>
+      <p class="text-gray-200">Download your finished resume as a high-quality PDF, ready to be sent to employers, with a single click.</p>
+    </div>
+  </div>
+
+  <!-- Feature Card 6 -->
+  <div class="gradient-border-card p-8 reveal-on-scroll relative overflow-hidden rounded-md" style="transition-delay: 400ms;">
+    <img src="{{ asset('images/image7.jpeg') }}" alt="AI Cover Letters" class="absolute inset-0 w-full h-full object-cover opacity-40">
+    <div class="relative">
+      <h3 class="text-2xl font-bold text-white mb-3">AI Cover Letters</h3>
+      <p class="text-gray-200">Generate personalized cover letters in seconds. Our AI tailors each letter to the specific job you're applying for.</p>
+    </div>
+  </div>
+</div>
+
             </div>
         </section>
 
