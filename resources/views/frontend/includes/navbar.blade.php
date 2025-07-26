@@ -15,8 +15,8 @@
                         onclick="toggleDropdown()" 
                         id="profileButton">
                     <span class="text-gray-300 hover:text-white font-medium">{{ $authUser->name }}</span>
-                    @if(!empty($authUser->profile) && file_exists(public_path($authUser->profile)))
-                        <img src="{{ asset($authUser->profile) }}" alt="profile" class="rounded-full border-2 border-gray-600 hover:border-white transition-colors duration-300" style="height: 50px; width: auto;" />
+                    @if(!empty($authUser->profile))
+                        <img src="{{ asset($authUser->profile) }}" alt="profile" class="rounded-full border-2 border-gray-600 hover:border-white transition-colors duration-300" style="height: 50px; width: auto;" onerror="this.onerror=null;this.src='{{ asset('backend/images/faces/face28.jpg') }}';" />
                     @else
                         <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" class="rounded-full border-2 border-gray-600 hover:border-white transition-colors duration-300" style="height: 50px; width: auto;" />
                     @endif

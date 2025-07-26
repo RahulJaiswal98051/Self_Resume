@@ -42,7 +42,7 @@
             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" id="profileDropdown">
               @auth
                 <span class="me-2">{{ $authUser->name }}</span>
-                @if(!empty($authUser->profile) && file_exists(public_path($authUser->profile)))
+                @if(!empty($authUser->profile))
                     <img src="{{ asset($authUser->profile) }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
                 @else
                     <img src="{{ asset('backend/images/faces/face28.jpg') }}" alt="profile" style="height: 50px; width: 50px; border-radius: 50%; border: 2px solid #000;" />
