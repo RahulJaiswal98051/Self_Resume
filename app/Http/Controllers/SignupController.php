@@ -36,7 +36,7 @@ class SignupController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
-            'profile_picture' => 'images/profiles/' . $profileName,
+            'profile' => 'images/profiles/' . $profileName,
         ];
 
         User::insert($data);

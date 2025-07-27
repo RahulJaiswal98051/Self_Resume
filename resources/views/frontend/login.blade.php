@@ -185,6 +185,10 @@
 
       <button type="submit">LOGIN</button>
 
+      <div class="forgot-password-link" style="margin-top: 15px; text-align: center;">
+        <a href="{{ route('password.request') }}" style="color: #7b2ff7; text-decoration: none;">Forgot Password?</a>
+      </div>
+
       <div class="register-link">
         Don’t have an account? <a href="{{ route('signup') }}">Sign Up</a>
       </div>

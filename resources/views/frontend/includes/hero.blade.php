@@ -11,7 +11,7 @@
                     Stop guessing. Let our intelligent platform analyze your skills and generate a professional resume that gets noticed by recruiters.
                 </p>
                 <div class="flex justify-center items-center gap-4">
-                    <a href="#" class="gradient-bg text-white font-bold text-lg px-8 py-4 rounded-xl hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300">
+                    <a href="resume-generator" class="gradient-bg text-white font-bold text-lg px-8 py-4 rounded-xl hover:scale-105 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300">
                         Build My Resume Now
                     </a>
                 </div>
