@@ -112,7 +112,7 @@
                 <div class="text-center mb-4">
                     <h2 class="text-dark mb-3">
                         <i class="fas fa-user-circle text-primary me-2"></i>
-                        Hello there!
+                        Hello !
                     </h2>
                 </div>
                 
